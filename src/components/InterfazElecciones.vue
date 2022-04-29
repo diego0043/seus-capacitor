@@ -40,6 +40,11 @@
       <h1 id="titulo">Elecciones Universitarias</h1>
     </div>
 
+    <div>
+      <DispositivoTest />
+      <GpsTest />
+    </div>
+
     <!--Card eleccion -->
     <div v-if="data_cargada != false" class="flex flex-center">
       <q-card
@@ -69,10 +74,13 @@
               Inicia el:
               <strong>{{ item.fechaDesde.toDate().toLocaleString() }}</strong>
             </span>
-            
+
             <!-- Fecha de finalizacion -->
             <span
-              v-show="Date.parse(Date()) > Date.parse(item.fechaDesde.toDate()) & Date.parse(item.fechaHasta.toDate()) > Date.parse(Date())"
+              v-show="
+                (Date.parse(Date()) > Date.parse(item.fechaDesde.toDate())) &
+                (Date.parse(item.fechaHasta.toDate()) > Date.parse(Date()))
+              "
               class="flex flex-center"
             >
               <q-icon name="event" size="20px" />
@@ -88,7 +96,6 @@
             >
               <u> Elecciones terminadas </u>
             </span>
-            
           </div>
         </q-card-section>
 
@@ -96,7 +103,10 @@
         <q-card-actions
           align="center"
           class=""
-          v-show="Date.parse(Date()) > Date.parse(item.fechaDesde.toDate()) & Date.parse(item.fechaHasta.toDate()) > Date.parse(Date())"
+          v-show="
+            (Date.parse(Date()) > Date.parse(item.fechaDesde.toDate())) &
+            (Date.parse(item.fechaHasta.toDate()) > Date.parse(Date()))
+          "
         >
           <!-- Boton Participar de mi voto: Solo se muestra si aun no ha votado -->
           <button
@@ -129,9 +139,11 @@
 <script>
 import AlertaVerificacion from "./AlertaVerificacion.vue";
 import { mapActions, mapGetters } from "vuex";
+import DispositivoTest from "./DispositivoTest.vue";
+import GpsTest from "./GpsTest.vue";
 
 export default {
-  components: { AlertaVerificacion },
+  components: { AlertaVerificacion, DispositivoTest, GpsTest },
   data() {
     return {};
   },
