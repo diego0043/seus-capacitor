@@ -51,6 +51,13 @@
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<key>NSLocationWhenInUseUsageDescription</key>
+
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs Location access for "some reason"!</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs Location access for "some reason"!</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+		<string>$(PRODUCT_NAME) needs Location access for "some reason"!</string>
 	<true/>
 </dict>
 </plist>
